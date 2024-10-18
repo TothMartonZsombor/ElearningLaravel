@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
+            $table->string('answer_text');
+            $table->integer('question_id');
+            $table->boolean('is_correct');
             $table->timestamps();
+            $table->softDeletes();
+            //$table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
     }
 

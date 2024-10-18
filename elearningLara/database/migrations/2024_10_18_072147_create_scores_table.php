@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->id();
+            $table->integer('subject_id');
+            $table->integer('score');
+            $table->string('email');
             $table->timestamps();
+            $table->softDeletes();
+            //$table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+
         });
     }
 

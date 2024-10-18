@@ -2,9 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    //
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = ['subject_name'];
+
+    public function question(){
+        return $this->hasMany(Question::class);
+    }
 }
